@@ -1,0 +1,84 @@
+<!--
+ * Apache 2.0 License
+ *
+ * Copyright (c) Massimiliano Coppola 2021
+ *
+ * This file contains Original Code and/or Modifications of Original Code
+ * as defined in and that are subject to the Apache License
+ * Version 2.0 (the 'License'). You may not use this file except in
+ * compliance with the License. Please obtain a copy of the License at
+ * http://opensource.org/licenses/Apache-2.0/ and read it before using this
+ * file.
+ *
+ * The Original Code and all software distributed under the License are
+ * distributed on an 'AS IS' basis, WITHOUT WARRANTY OF ANY KIND, EITHER
+ * EXPRESS OR IMPLIED, AND APPLE HEREBY DISCLAIMS ALL SUCH WARRANTIES,
+ * INCLUDING WITHOUT LIMITATION, ANY WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE, QUIET ENJOYMENT OR NON-INFRINGEMENT.
+ * Please see the License for the specific language governing rights and
+ * limitations under the License.
+-->
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:rim="http://www.blackberry.com/ns/widgets"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="cordova-plugin-jitsi-meet-sdk"
+    version="4.0.2">
+    <name>Jitsi Meet</name>
+    <description>Cordova plugin with Jitsi Meet SDK features</description>
+    <license>Apache 2.0</license>
+    <keywords>cordova,jitsi,sdk,android,ios</keywords>
+    <repo>https://github.com/Zeno97/cordova-plugin-jitsi-meet-sdk.git</repo>
+
+    <js-module src="www/jitsi-meet.js" name="JitsiMeet">
+        <clobbers target="JitsiMeet" />
+    </js-module>
+
+    <!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="JitsiMeet" >
+                <param name="android-package" value="org.jitsi.meet.JitsiMeet.JitsiMeet"/>
+            </feature>
+        </config-file>
+
+		<dependency id="cordova-plugin-androidx"/>
+
+
+        <source-file src="src/android/JitsiMeet.java" target-dir="src/org/jitsi/meet/JitsiMeet" />
+
+		<framework src="src/android/build-extras.gradle" custom="true" type="gradleReference" />
+    </platform>
+
+    <!-- ios -->
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="JitsiMeet">
+                <param name="ios-package" value="CDVJitsiMeet" />
+            </feature>
+        </config-file>
+
+        <config-file target="*-Info.plist" parent="NSMicrophoneUsageDescription">
+            <string>For meeting purpose</string>
+        </config-file>
+
+        <config-file target="*-Info.plist" parent="NSCameraUsageDescription">
+            <string>For meeting purpose</string>
+        </config-file>
+
+        <config-file target="*-Info.plist" parent="NSCalendarsUsageDescription">
+            <string>For meeting purpose</string>
+        </config-file>
+
+        <header-file src="src/ios/CDVJitsiMeet.h" />
+        <source-file src="src/ios/CDVJitsiMeet.m" />
+
+        <podspec>
+            <pods use-frameworks="true" >
+                <pod name="JitsiMeetSDK" />
+            </pods>
+        </podspec>
+
+    </platform>
+</plugin>

@@ -1,0 +1,32 @@
+{
+  "name": "cordova-plugin-jitsi-meet-sdk",
+  "version": "4.0.2",
+  "description": "Cordova plugin with Jitsi Meet SDK features",
+  "cordova": {
+    "id": "cordova-plugin-jitsi-meet-sdk",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zeno97/cordova-plugin-jitsi-meet-sdk.git"
+  },
+  "keywords": [
+    "cordova",
+    "jitsi",
+    "sdk",
+    "android",
+    "ios",
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios"
+  ],
+  "author": "Massimiliano Coppola",
+  "license": "Apache 2.0",
+  "bugs": {
+    "url": "https://github.com/Zeno97/cordova-plugin-jitsi-meet-sdk/issues"
+  },
+  "homepage": "https://github.com/Zeno97/cordova-plugin-jitsi-meet-sdk#readme"
+}
