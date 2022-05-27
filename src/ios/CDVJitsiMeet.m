@@ -74,8 +74,9 @@
         BOOL videoMuted = [[meetingOptions objectForKey:@"audioMuted"] boolValue];
         [builder setVideoMuted:videoMuted];
         
-        BOOL welcomePageEnabled = [[meetingOptions objectForKey:@"welcomePageEnabled"] boolValue];
-        [builder setWelcomePageEnabled:welcomePageEnabled];
+        // These lines trigger a "No visible interface for @JitsiMeetConferenceOptionsBuilder" at build time - did not understand why yet
+        // BOOL welcomePageEnabled = [[meetingOptions objectForKey:@"welcomePageEnabled"] boolValue];
+        // [builder setWelcomePageEnabled:welcomePageEnabled];
         
         
         //flags
